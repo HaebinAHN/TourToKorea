@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">TourToKorea</string>
+    <string name="WGNW_Welcome">Welcome! </string>
+    <string name="WGNW_Map_button">Maps</string>
+    <string name="WGNW_Community">Community</string>
+    <string name="WGNW_Nation">Nation</string>
+    <string name="WGNW_User_location">User 국가 화폐</string>
 </resources>
