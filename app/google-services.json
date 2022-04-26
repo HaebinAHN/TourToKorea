@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "636880453151",
+    "project_id": "tourtokorea-a7f98",
+    "storage_bucket": "tourtokorea-a7f98.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:636880453151:android:9bbf709b91e25dadf2df2a",
+        "android_client_info": {
+          "package_name": "com.teamb.tourtokorea"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "636880453151-he53jvv7a5l3jqh1an7cod0vhv3oh1k7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBcPkoCRItWGVmoz2JagHF_i9TqF5JjHRM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "636880453151-he53jvv7a5l3jqh1an7cod0vhv3oh1k7.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
