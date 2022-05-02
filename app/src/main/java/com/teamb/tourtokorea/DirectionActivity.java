@@ -17,6 +17,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -41,6 +42,11 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_direction);
 
+        gpsTracker = new GPS_Background(DirectionActivity.this);
+
+        EditText totext = (EditText) findViewById(R.id.ToText);
+        EditText fromText = (EditText) findViewById(R.id.FromText);
+
         if (checkLocationServicesStatus()) {
             checkRunTimePermission();
         } else {
@@ -54,25 +60,46 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
         Button placebutton = (Button) findViewById(R.id.placeButton);
 
         placebutton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
 
-                gpsTracker = new GPS_Background(DirectionActivity.this);
+                if (totext.getText().toString().length() != 0 && fromText.getText().toString().length() != 0){
 
-                double latitude = gpsTracker.getLatitude();
-                double longitude = gpsTracker.getLongitude();
+                    call_Google_map(totext.getText().toString(),fromText.getText().toString());
 
-                String uri ="http://maps.google.com/maps?saddr="+latitude+","+longitude+"&daddr="+ URLEncoder.encode("120, Dokseodang-ro, Yongsan-gu, CPO Box 3887, Seoul");
-                Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
-                        Uri.parse(uri));
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.addCategory(Intent.CATEGORY_LAUNCHER );
-                intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
-                startActivity(intent);
+                } else if(totext.getText().toString().length() != 0 && fromText.getText().toString().length() == 0) {
+                    call_Google_map(totext.getText().toString(),"null");
+                } else {
+                    Toast.makeText(getApplicationContext(),"Please enter destination information at least.",Toast.LENGTH_LONG).show();
+                }
 
             }
         });
 
+    }
+
+    public void call_Google_map(String to,String from){
+
+        String uri;
+
+        if(from == "null"){
+
+            double latitude = gpsTracker.getLatitude();
+            double longitude = gpsTracker.getLongitude();
+
+            uri ="http://maps.google.com/maps?saddr="+latitude+","+longitude+"&daddr="+ URLEncoder.encode(to);
+
+        } else{
+            uri ="http://maps.google.com/maps?saddr="+URLEncoder.encode(from)+"&daddr="+ URLEncoder.encode(to);
+        }
+
+        Intent intent = new Intent(android.content.Intent.ACTION_VIEW,
+                Uri.parse(uri));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.addCategory(Intent.CATEGORY_LAUNCHER );
+        intent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
+        startActivity(intent);
     }
 
     @Override
@@ -225,7 +252,11 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         // Add a marker in Sydney, Australia,
         // and move the map's camera to the same location.
-        LatLng sydney = new LatLng(-33.852, 151.211);
+
+        double latitude = gpsTracker.getLatitude();
+        double longitude = gpsTracker.getLongitude();
+
+        LatLng sydney = new LatLng(latitude, longitude);
         googleMap.addMarker(new MarkerOptions()
                 .position(sydney)
                 .title("Marker in Sydney"));
