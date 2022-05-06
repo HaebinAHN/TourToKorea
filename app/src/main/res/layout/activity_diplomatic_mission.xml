@@ -37,7 +37,7 @@
         tools:layout_editor_absoluteX="24dp" />
 
     <Button
-        android:id="@+id/transport"
+        android:id="@+id/Look_around"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/textView4"
@@ -57,7 +57,7 @@
         tools:layout_editor_absoluteX="161dp" />
 
     <Button
-        android:id="@+id/Look_around"
+        android:id="@+id/transport"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView5"
@@ -75,6 +75,16 @@
         android:text="Public transportation guidance to that location"
         app:layout_constraintTop_toBottomOf="@+id/Look_around"
         tools:layout_editor_absoluteX="107dp" />
+
+    <TextView
+        android:id="@+id/error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/map_Location"
+        android:layout_marginStart="58dp"
+        android:layout_marginTop="18dp"
+        android:layout_toEndOf="@+id/editTextTextPersonName2"
+        android:text="" />
 
 
 </RelativeLayout>
