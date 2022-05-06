@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/popup_restaurants"
+        android:title="restaurants" />
+    <item
+        android:id="@+id/popup_Cafe"
+        android:title="Cafe" />
+    <item
+        android:id="@+id/popup_landmark"
+        android:title="landmark" />
+
+</menu>

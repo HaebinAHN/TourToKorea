@@ -19,6 +19,9 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import java.util.List;
 
 public class GPS_Background extends Service implements LocationListener  {
+
+    // GPS 위치 확인을 위한 클래스 : 위도 경도 받아오는거 정도로 생각하고 그 이상을 생각하는건 어리석은 행동이다.
+
     private final Context mContext;
     Location location;
     double latitude;
