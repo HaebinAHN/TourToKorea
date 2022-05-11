@@ -103,4 +103,5 @@
     <string name="main_app_name">Tour\nTo\nKorea</string>
     <string name="main_google_login">Login with google account</string>
     <string name="logoutButton">Logout</string>
+    <string name="nation_editText_text">Enter your Nation</string>
 </resources>
