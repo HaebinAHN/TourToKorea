@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -40,8 +41,10 @@ public class MainActivity extends AppCompatActivity {
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     private FirebaseAuth mAuth = null;
     private GoogleSignInClient mGoogleSignInClient;
+    private String userNation;
     private static final int RC_SIGN_IN = 9001;
     private SignInButton signInButton;
+    private EditText nation;
 
     String[] REQUIRED_PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
 
@@ -52,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
 
         //로그인 버튼과 파이어베이스 인증 instance를 받아옵니다.
         signInButton = findViewById(R.id.signInButton);
+        nation = findViewById(R.id.nationEdittext);
         mAuth = FirebaseAuth.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -63,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                userNation = nation.getText().toString();
                 signIn();
             }
         });
@@ -183,6 +188,7 @@ public class MainActivity extends AppCompatActivity {
         if(user != null) {
 
             Intent intent = new Intent(this, Selectpage.class);
+            intent.putExtra("userNation", userNation);
             startActivity(intent);
             finish();
         }
