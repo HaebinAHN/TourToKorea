@@ -1,28 +1,22 @@
 package com.teamb.tourtokorea;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
-import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.Transaction;
 
 import java.util.HashMap;
 import java.util.Map;
->>>>>>> main
 
 public class Selectpage extends AppCompatActivity {
 
@@ -61,8 +55,8 @@ public class Selectpage extends AppCompatActivity {
         commubtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), communitymain.class);
-                startActivity(intent);
+                //Intent intent = new Intent(getApplicationContext(), communitymain.class);
+                //startActivity(intent);
             }
         });
     }
