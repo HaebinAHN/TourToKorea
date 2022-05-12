@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        Button button3 = findViewById(R.id.button3);
+        Button button3 = findViewById(R.id.signupbtn);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -124,9 +124,9 @@ public class MainActivity extends AppCompatActivity {
 
                 // 목적지 길찾기 정보 호출을 원하는 경우 : DirectionActivity intent 호출 ->  "daddr" 에 목적지 주소 정보를 담아서 전달 + "laddr"에 출발지 정보를 담아서 전달.
 
-                Intent intent = new Intent(getApplicationContext(),DirectionActivity.class);
-                intent.putExtra("daddr","101, Dokseodang-ro, Yongsan-gu, Seoul");
-                intent.putExtra("laddr","가천대");
+                Intent intent = new Intent(getApplicationContext(), DirectionActivity.class);
+                intent.putExtra("daddr", "101, Dokseodang-ro, Yongsan-gu, Seoul");
+                intent.putExtra("laddr", "가천대");
 
                 startActivity(intent);
 
