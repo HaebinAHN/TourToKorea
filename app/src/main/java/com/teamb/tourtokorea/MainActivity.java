@@ -64,10 +64,6 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        /**
-         * 구글 로그인 버튼 리스너
-         * 국가를 넣는
-         * */
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -75,7 +71,6 @@ public class MainActivity extends AppCompatActivity {
                 signIn();
             }
         });
-
        /*// 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
 
         // 퍼미션 확인 후 퍼미션 권한 요청.
@@ -170,10 +165,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    /**
-     * 구글 계정을 Firebase 인증에 연동하는 것
-     * 인증 후 selectpage로 넘김
-     * */
     private void firebaseAuthWithGoogle(GoogleSignInAccount acct) {
 
         AuthCredential credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null);
@@ -192,10 +183,6 @@ public class MainActivity extends AppCompatActivity {
                 });
     }
 
-    /**
-     * Selectpage로 넘어가는 intent 함수
-     * 넘어갈때 Edittext에서 받은 유저의 국가 정보도 같이 넘겨준다.
-     * */
     private void updateUI(FirebaseUser user) {
 
         if(user != null) {
@@ -206,7 +193,6 @@ public class MainActivity extends AppCompatActivity {
             finish();
         }
     }
-
     //하부 메소드들 : GPS 신호 사용을 위한 권한설정 메소드 (퍼다구함)
     @Override
     public void onRequestPermissionsResult(int permsRequestCode,
