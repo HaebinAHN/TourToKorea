@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-       /*// 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
+
 
         // 퍼미션 확인 후 퍼미션 권한 요청.
         if (checkLocationServicesStatus()) {
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
             showDialogForLocationServiceSetting();
         }
 
-
+/*// 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
 
         Button button3 = findViewById(R.id.button3);
         button3.setOnClickListener(new View.OnClickListener() {
