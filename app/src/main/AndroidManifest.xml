@@ -47,6 +47,15 @@
             android:name=".Selectpage"
             android:exported="false" />
         <activity
+            android:name=".CommunitySelect"
+            android:exported="false" />
+        <activity
+            android:name=".PostList"
+            android:exported="false" />
+        <activity
+            android:name=".Posting"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -54,15 +63,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Loginpage"
-            android:exported="false" />
-        <activity
-            android:name=".Signuppage"
-            android:exported="false" />
-        <activity
-            android:name=".communitymain"
-            android:exported="false" />
     </application>
 
 </manifest>
