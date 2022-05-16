@@ -51,12 +51,32 @@ public class Selectpage extends AppCompatActivity {
         });
         
         Button commubtn = findViewById(R.id.commubtn);
-
         commubtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent intent = new Intent(getApplicationContext(), communitymain.class);
-                //startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), CommunitySelect.class);
+                startActivity(intent);
+            }
+        });
+
+
+        Button directionbtn = findViewById(R.id.direction);
+
+        directionbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), DirectionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button diplomaticbtn = findViewById(R.id.diplomatic);
+
+        diplomaticbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), diplomatic_mission.class);
+                startActivity(intent);
             }
         });
     }

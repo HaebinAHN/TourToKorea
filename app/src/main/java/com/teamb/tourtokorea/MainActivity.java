@@ -80,7 +80,7 @@ public class MainActivity extends AppCompatActivity {
             showDialogForLocationServiceSetting();
         }
 
-        /*// 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
+        // 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
 
         Button button3 = findViewById(R.id.signupbtn);
         button3.setOnClickListener(new View.OnClickListener() {
