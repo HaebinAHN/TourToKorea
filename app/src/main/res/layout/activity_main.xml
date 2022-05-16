@@ -26,47 +26,29 @@
         android:text="@string/main_google_login"
         android:textSize="20dp" />
 
-    <EditText
-        android:id="@+id/nationEdittext"
+    <TextView
+        android:id="@+id/nationSelectText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:text="@string/nation_editText_text"/>
+        android:layout_marginTop="5dp"
+        android:text="Select Your Nation"
+        android:textSize="15dp" />
+
+    <Spinner
+        android:id="@+id/nationSpinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
+        android:spinnerMode="dropdown"
+        android:popupBackground="@color/white" />
 
     <com.google.android.gms.common.SignInButton
         android:id="@+id/signInButton"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
     </com.google.android.gms.common.SignInButton>
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginEnd="260dp"
-        android:layout_marginBottom="65dp"
-        android:text="로그인 화면으로 전환"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.988" />
-
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="254dp"
-        android:layout_marginEnd="147dp"
-        android:layout_marginBottom="54dp"
-        android:text="Button"
-        app:layout_constraintBottom_toTopOf="@+id/textView12"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView13"
-        app:layout_constraintTop_toTopOf="parent"
-        android:layout_gravity="center_horizontal"/>
-
 </LinearLayout>

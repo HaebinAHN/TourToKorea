@@ -50,7 +50,7 @@ public class Selectpage extends AppCompatActivity {
             finishAffinity();
         });
         
-        Button commubtn = findViewById(R.id.commubtn);
+       Button commubtn = findViewById(R.id.commubtn);
         commubtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
