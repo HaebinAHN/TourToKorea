@@ -9,7 +9,10 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -51,10 +54,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //spinner adapter
+        Spinner spinner = (Spinner)findViewById(R.id.nationSpinner);
+        ArrayAdapter<CharSequence>sAdapter = ArrayAdapter.createFromResource(this, R.array.nationList, android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(sAdapter);
 
         //로그인 버튼과 파이어베이스 인증 instance를 받아옵니다.
         signInButton = findViewById(R.id.signInButton);
-        nation = findViewById(R.id.nationEdittext);
         mAuth = FirebaseAuth.getInstance();
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -63,10 +69,21 @@ public class MainActivity extends AppCompatActivity {
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                userNation = (String)sAdapter.getItem(i);
+                Log.d("Nation check", userNation);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
         signInButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                userNation = nation.getText().toString();
                 signIn();
             }
         });
