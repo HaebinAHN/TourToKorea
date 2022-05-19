@@ -31,7 +31,7 @@ render.experimental.xml
 *.keystore
 
 # Google Services (e.g. APIs or Firebase)
-google-services.json
+
 
 # Android Profiling
 *.hprof
@@ -125,7 +125,6 @@ proguard/
 
 # Android Studio
 /*/build/
-/*/local.properties
 /*/out
 /*/*/build
 /*/*/production
