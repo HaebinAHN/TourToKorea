@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +22,7 @@ import java.util.Map;
 
 public class Selectpage extends AppCompatActivity {
 
+    private String userNation;
     private static final String TAG = "StoreData";
     private FirebaseAuth mAuth;
     Button logoutBtn;
@@ -118,4 +121,8 @@ public class Selectpage extends AppCompatActivity {
                     }
                 });
     }
+
+
+
+
 }

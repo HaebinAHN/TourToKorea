@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private static final int PERMISSIONS_REQUEST_CODE = 100;
     private FirebaseAuth mAuth = null;
     private GoogleSignInClient mGoogleSignInClient;
-    private String userNation;
+    public static String userNation;
     private static final int RC_SIGN_IN = 9001;
     private SignInButton signInButton;
     private EditText nation;
@@ -95,7 +95,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
 /*// 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
-
         // 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
 
         Button button3 = findViewById(R.id.signupbtn);
@@ -323,8 +322,6 @@ public class MainActivity extends AppCompatActivity {
         });
         builder.create().show();
     }
-
-
 
 
     public boolean checkLocationServicesStatus() {
