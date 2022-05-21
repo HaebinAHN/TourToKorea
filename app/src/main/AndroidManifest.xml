@@ -17,10 +17,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TourToKorea"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".Search_list"
-            android:exported="true" >
-        </activity>
 
         <activity
             android:name=".diplomatic_mission"
@@ -55,6 +51,9 @@
         <activity
             android:name=".Posting"
             android:exported="false" />
+        <activity
+            android:name=".Search_list"
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
             android:exported="true">

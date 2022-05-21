@@ -78,7 +78,7 @@ public class Selectpage extends AppCompatActivity {
         diplomaticbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), diplomatic_mission.class);
+                Intent intent = new Intent(getApplicationContext(), Search_list.class);
                 startActivity(intent);
             }
         });
