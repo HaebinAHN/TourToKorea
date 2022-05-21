@@ -4,9 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -35,6 +33,9 @@ public class Selectpage extends AppCompatActivity {
         Intent intent = getIntent();
 
         String userNation = intent.getStringExtra("userNation");
+        int selectpage = intent.getIntExtra("user_nation_index",0);
+
+        String[] kor_list = getResources().getStringArray(R.array.nationkorList);
 
         logoutBtn = (Button)findViewById(R.id.logoutButton);
 
@@ -79,6 +80,7 @@ public class Selectpage extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), Search_list.class);
+                intent.putExtra("search",kor_list[selectpage]);
                 startActivity(intent);
             }
         });

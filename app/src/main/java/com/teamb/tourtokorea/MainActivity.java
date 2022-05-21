@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText nation;
 
     String[] REQUIRED_PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+    int selected_item = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 userNation = (String)sAdapter.getItem(i);
+                selected_item = i;
                 Log.d("Nation check", userNation);
             }
 
@@ -204,6 +206,7 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, Selectpage.class);
             intent.putExtra("userNation", userNation);
+            intent.putExtra("user_nation_index",selected_item);
             startActivity(intent);
             finish();
         }
