@@ -39,6 +39,7 @@ public class Search_list extends AppCompatActivity {
 
         //인텐트 수신.
         Intent received_intent = getIntent();
+
         search = received_intent.getStringExtra("search");
 
         //주소 데이터 리스트 객체 생성 및 초기 데이터 생성.

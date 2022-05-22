@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
+
     <TextView
         android:id="@+id/textView"
         android:textSize="30dp"
@@ -43,7 +45,8 @@
         app:layout_constraintBottom_toTopOf="@+id/commubtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/commubtn"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
 
@@ -52,10 +55,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="165dp"
-        android:layout_marginBottom="97dp"
         android:text="@string/WGNW_Map_button"
         app:layout_constraintBottom_toTopOf="@+id/commubtn"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="@+id/commubtn"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 

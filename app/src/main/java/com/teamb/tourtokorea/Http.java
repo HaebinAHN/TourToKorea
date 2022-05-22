@@ -56,17 +56,10 @@ public class Http implements Runnable{
             });*/
 
             con.setDoInput(true);
-            // Output setting
-            // httpsConn.setDoOutput(true);
-            // Caches setting
             con.setUseCaches(false);
-            // Read Timeout Setting
             con.setReadTimeout(1000);
-            // Connection Timeout setting
             con.setConnectTimeout(1000);
-            // Method Setting(GET/POST)
             con.setRequestMethod("GET");
-            //Header Setting
             con.setRequestProperty("Content-Type", "application/json");
 
             con.connect();
@@ -74,10 +67,6 @@ public class Http implements Runnable{
             int responseCode = con.getResponseCode();
             Log.d("http","responsecode : "+responseCode);
             Log.d("http","response : "+con.getResponseMessage());
-
-            /*SSLContext context = SSLContext.getInstance("TLS");
-            context.init(null,null,null);
-            con.setSSLSocketFactory(context.getSocketFactory());*/
 
             con.setInstanceFollowRedirects(true);
 

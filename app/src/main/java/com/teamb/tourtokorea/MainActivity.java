@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText nation;
 
     String[] REQUIRED_PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+    int selected_item = -1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,6 +74,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 userNation = (String)sAdapter.getItem(i);
+                selected_item = i;
                 Log.d("Nation check", userNation);
             }
 
@@ -96,50 +98,35 @@ public class MainActivity extends AppCompatActivity {
 
 /*// 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
         // 임시 기능 구현 예제용 예시들, 인텐트 호출 형식 확인바람.
-
         Button button3 = findViewById(R.id.signupbtn);
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 // open api 정보 호출을 원하는 경우 : Search_list intent 호출 -> 엑스트라 내 "search" 에 정보를 담아서 전달.
-
                 Intent intent = new Intent(getApplicationContext(),Search_list.class);
                 intent.putExtra("search","미국");
-
                 startActivity(intent);
-
             }
         });
-
         Button button4 = findViewById(R.id.button4);
         button4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 // 목적지 주변 정보 확인 및 길찾기 안내 호출을 원하는 경우 : diplomatic_mission intent 호출 ->  "adr" 에 주소 정보를 담아서 전달.
-
                 Intent intent = new Intent(getApplicationContext(),diplomatic_mission.class);
                 intent.putExtra("adr","101, Dokseodang-ro, Yongsan-gu, Seoul");
-
                 startActivity(intent);
-
             }
         });
-
         Button button5 = findViewById(R.id.button5);
         button5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 // 목적지 길찾기 정보 호출을 원하는 경우 : DirectionActivity intent 호출 ->  "daddr" 에 목적지 주소 정보를 담아서 전달 + "laddr"에 출발지 정보를 담아서 전달.
-
                 Intent intent = new Intent(getApplicationContext(), DirectionActivity.class);
                 intent.putExtra("daddr", "101, Dokseodang-ro, Yongsan-gu, Seoul");
                 intent.putExtra("laddr", "가천대");
-
                 startActivity(intent);
-
             }
         });*/
     }
@@ -204,6 +191,7 @@ public class MainActivity extends AppCompatActivity {
 
             Intent intent = new Intent(this, Selectpage.class);
             intent.putExtra("userNation", userNation);
+            intent.putExtra("user_nation_index",selected_item);
             startActivity(intent);
             finish();
         }
