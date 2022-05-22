@@ -34,7 +34,7 @@
 
 
             <Button
-                android:id="@+id/button1"
+                android:id="@+id/userbtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
@@ -89,7 +89,7 @@
                 android:layout_weight="1"
                 android:spinnerMode="dropdown" />
             <Button
-                android:id="@+id/signupbtn"
+                android:id="@+id/otherbtn"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"

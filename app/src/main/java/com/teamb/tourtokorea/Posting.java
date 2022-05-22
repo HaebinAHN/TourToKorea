@@ -33,6 +33,8 @@ public class Posting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_posting);
+        Intent recived_intent = getIntent();
+        String country = recived_intent.getStringExtra("country");
 
         title = findViewById(R.id.title_et);
         content = findViewById(R.id.content_et);
@@ -51,11 +53,14 @@ public class Posting extends AppCompatActivity {
                 String usrCountry = MainActivity.userNation;
                 String titleString = title.getText().toString();
                 String contentString = content.getText().toString();
+                int index;
 
                 Post post = new Post(titleString, contentString, usrId ,usrCountry);
-                rootRef.child("/Post/").push().setValue(post);
+                rootRef.child("board").push().setValue(post);
 
                 Intent intent = new Intent(getApplicationContext(), PostList.class);
+                intent.putExtra("country", country);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
             }
         });
