@@ -97,15 +97,14 @@ public class DirectionActivity extends AppCompatActivity implements OnMapReadyCa
 
         } else if (daddr == null){
             // 목적지 정보가 없는 경우 서울시청으로 고정됨.
-            lat = 37.5666805;
-            lon = 126.9784147;
+            lat = gpsTracker.getLatitude();
+            lon = gpsTracker.getLongitude();
         }
 
         // 출발지 정보가 있는 경우 출발지 입력 부분에 데이터 표시.
         if(laddr !=null){
             fromText.setText(laddr);
         }
-
 
         // 구글 맵 프래그먼트 생성 부분.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()

@@ -4,10 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +37,16 @@ public class Selectpage extends AppCompatActivity {
 
         String userNation = intent.getStringExtra("userNation");
         int selectpage = intent.getIntExtra("user_nation_index",0);
+
+        WebView web = findViewById(R.id.webView);
+
+        web.setWebChromeClient(new WebChromeClient());
+        WebSettings webset = web.getSettings();
+        webset.setJavaScriptEnabled(true);
+        webset.setAllowContentAccess(true);
+        webset.setAllowFileAccess(true);
+
+        web.loadUrl("file:///android_asset/USD.html");
 
         String[] kor_list = getResources().getStringArray(R.array.nationkorList);
 
