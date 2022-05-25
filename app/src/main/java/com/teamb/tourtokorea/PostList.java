@@ -1,41 +1,26 @@
 package com.teamb.tourtokorea;
 
-import static android.content.ContentValues.TAG;
-
 import android.content.Intent;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.provider.ContactsContract;
 import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.RecyclerView;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 public class PostList extends AppCompatActivity {
 
@@ -48,9 +33,12 @@ public class PostList extends AppCompatActivity {
         String country = recived_intent.getStringExtra("country");
         ListView listview ;
 
+        String ImgID;
 
         listview = (ListView)findViewById(R.id.listView);
 
+        ArrayList<String> ImgList = new ArrayList<>();
+        ArrayList<String> LocationList = new ArrayList<>();
 
         final ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1,android.R.id.text1);
         listview.setAdapter(adapter);
@@ -63,8 +51,11 @@ public class PostList extends AppCompatActivity {
             data.child("board").addChildEventListener(new ChildEventListener() {
                 @Override
                 public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                    FirebasePost board = snapshot.getValue(FirebasePost.class);
+                    Post board = snapshot.getValue(Post.class);
                     adapter.add(board.getPostTitle());
+                    ImgList.add(board.getImgID());
+                    LocationList.add(board.getLocation());
+
                 }
 
                 @Override
@@ -94,8 +85,29 @@ public class PostList extends AppCompatActivity {
                     for (DataSnapshot childDataSnapshot : dataSnapshot.getChildren()) {
                         Log.d("asdf", "PARENT: " + childDataSnapshot.getKey());
                         Log.d("asdf", "" + childDataSnapshot.child("postTitle").getValue().toString());
+                        Log.d("asdf",""+childDataSnapshot.child("ImgID").getValue());
                         Log.d("asdf", "" + childDataSnapshot.child("postContent").getValue());
                         adapter.add(childDataSnapshot.child("postTitle").getValue());
+
+                        String Img;
+
+                        if(childDataSnapshot.child("imgID").getValue() != null){
+                            Img = childDataSnapshot.child("imgID").getValue().toString();
+                        }else{
+                            Img = null;
+                        }
+
+                        ImgList.add(Img);
+
+                        String Location;
+
+                        if(childDataSnapshot.child("location").getValue() != null){
+                            Location = childDataSnapshot.child("location").getValue().toString();
+                        }else{
+                            Location = null;
+                        }
+
+                        LocationList.add(Location);
                     }
                 }
 
@@ -111,9 +123,13 @@ public class PostList extends AppCompatActivity {
             @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
                 String data = (String) adapterView.getItemAtPosition(position);
+                String Img = (String) ImgList.get(position);
+                String Loc = (String) LocationList.get(position);
                 Log.d("asddsf", "" + data);
                 Intent intent = new Intent(getApplicationContext(), postView.class);
                 intent.putExtra("Title", data);
+                intent.putExtra("ImgID",Img);
+                intent.putExtra("Loc",Loc);
                 startActivity(intent);
             }
         });

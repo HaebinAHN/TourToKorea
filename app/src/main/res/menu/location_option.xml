@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/current_loc"
+        android:title="Current_Location"/>
+    <item
+        android:id="@+id/input"
+        android:title="Input Address"/>
+</menu>
