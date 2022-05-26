@@ -10,7 +10,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="diplomatic_mission"><u>120, Dokseodang-ro, Yongsan-gu, CPO Box 3887, Seoul</u></string>
     <string name="title_activity_search_list">Search_list</string>
-    <string name="WGNW_Map_button2">Diplomatic</string>
+    <string name="WGNW_Map_button2">Embassy</string>
     <string name="large_text">
         "Material is the metaphor.\n\n"
 
@@ -105,4 +105,5 @@
     <string name="main_google_login">Login with google account</string>
     <string name="logoutButton">Logout</string>
     <string name="nation_editText_text">Enter your Nation</string>
+    <string name="guidetext">Press button to get information what you want!</string>
 </resources>
